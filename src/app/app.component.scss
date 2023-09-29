@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 100%;
+
+  padding: .5rem 1rem;
+
+  app-header {
+    width: 100%;
+  }
+
+  h1 {
+    color: #07B0FB;
+
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+
+    padding: 2rem 0;
+  }
+}
