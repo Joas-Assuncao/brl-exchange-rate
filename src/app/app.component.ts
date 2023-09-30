@@ -25,11 +25,6 @@ export class AppComponent {
         [Validators.required, Validators.maxLength(3), Validators.minLength(3)],
       ],
     });
-
-    this.exchangeList = [];
-
-    calculateDiff(4.96, 5.03);
-    this.handleSearch();
   }
 
   handleSearch() {
