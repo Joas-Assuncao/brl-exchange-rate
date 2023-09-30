@@ -2,12 +2,11 @@
   <app-header></app-header>
 
   <div class="content">
-    <app-input [form]="form"></app-input>
+    <form [formGroup]="form" (submit)="handleSearch()">
+      <app-input [form]="form" (keydown.enter)="handleSearch()"></app-input>
 
-    <app-button
-      [disabled]="form.invalid"
-      (eventSearch)="handleSearch()"
-    ></app-button>
+      <app-button [disabled]="form.invalid || isLoading"></app-button>
+    </form>
 
     <app-list
       *ngIf="!isLoading"
