@@ -52,7 +52,7 @@ export class AppComponent {
     ]).subscribe({
       next: ([current, daily]) => {
         this.currentExchange = current;
-        this.exchangeList = daily?.data;
+        this.exchangeList = daily?.data?.slice(0, 30);
 
         this.isLoading = false;
       },
