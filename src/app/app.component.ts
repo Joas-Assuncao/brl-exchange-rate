@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { forkJoin } from 'rxjs';
-import { ExchangeService } from './exchange.service';
+import { ExchangeService } from './services/exchange.service';
 import { DailyExchangeRate, ExchangeRate } from './models/Exchange.models';
 import { calculateDiff } from './utils/calculateDiff';
 
@@ -29,6 +29,7 @@ export class AppComponent {
     this.exchangeList = [];
 
     calculateDiff(4.96, 5.03);
+    this.handleSearch();
   }
 
   handleSearch() {

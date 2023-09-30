@@ -10,12 +10,14 @@
 
   app-header,
   app-input,
+  app-list,
   app-button {
     width: 100%;
   }
 
   app-input,
-  app-button {
+  app-button,
+  app-list {
     margin-top: 2rem;
   }
 }

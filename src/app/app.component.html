@@ -8,5 +8,8 @@
     (eventSearch)="handleSearch()"
   ></app-button>
 
-  <app-list [exchangeList]="exchangeList"></app-list>
+  <app-list
+    [currentExchange]="currentExchange"
+    [exchangeList]="exchangeList"
+  ></app-list>
 </div>
