@@ -36,22 +36,22 @@
           >{{ "close diff (%):" | uppercase }}
           <span
             [class.positive]="
-              calculateDiff(currentValue, exchange.close).startsWith('+')
+              calculateDiff(exchange.open, exchange.close).startsWith('+')
             "
             [class.negative]="
-              calculateDiff(currentValue, exchange.close).startsWith('-')
+              calculateDiff(exchange.open, exchange.close).startsWith('-')
             "
-            >{{ calculateDiff(currentValue, exchange.close) }}</span
+            >{{ calculateDiff(exchange.open, exchange.close) }}</span
           >
         </label>
         <mat-icon
           color="accent"
-          *ngIf="calculateDiff(currentValue, exchange.close).startsWith('+')"
+          *ngIf="calculateDiff(exchange.open, exchange.close).startsWith('+')"
           >keyboard_arrow_up</mat-icon
         >
         <mat-icon
           color="warn"
-          *ngIf="calculateDiff(currentValue, exchange.close).startsWith('-')"
+          *ngIf="calculateDiff(exchange.open, exchange.close).startsWith('-')"
           >keyboard_arrow_down</mat-icon
         >
       </div>

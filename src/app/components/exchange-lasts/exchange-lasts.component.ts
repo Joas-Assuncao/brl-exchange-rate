@@ -9,11 +9,6 @@ import { calculateDiff } from 'src/app/utils/calculateDiff';
 })
 export class ExchangeLastsComponent {
   @Input() exchangeList: DailyExchangeRate[] | undefined;
-  @Input() currentValue: number;
 
   public calculateDiff = calculateDiff;
-
-  constructor() {
-    this.currentValue = 0;
-  }
 }
