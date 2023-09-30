@@ -2,8 +2,6 @@ export function calculateDiff(
   currentPrice?: number,
   dailyPrice?: number
 ): string {
-  console.log(currentPrice, dailyPrice);
-
   if (!currentPrice || !dailyPrice) return '0%';
 
   const value = currentPrice / dailyPrice;
