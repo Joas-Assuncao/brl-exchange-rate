@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { forkJoin } from 'rxjs';
 import { ExchangeService } from './exchange.service';
 import { DailyExchangeRate, ExchangeRate } from './models/Exchange.models';
+import { calculateDiff } from './utils/calculateDiff';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { DailyExchangeRate, ExchangeRate } from './models/Exchange.models';
 })
 export class AppComponent {
   form: FormGroup;
-  exchangeList: DailyExchangeRate[];
+  exchangeList: DailyExchangeRate[] | undefined;
   currentExchange!: ExchangeRate;
 
   constructor(
@@ -21,34 +22,33 @@ export class AppComponent {
     this.form = this.formBuilder.group({
       inputSearch: [
         '',
-        Validators.required,
-        Validators.maxLength(3),
-        Validators.minLength(3),
+        [Validators.required, Validators.maxLength(3), Validators.minLength(3)],
       ],
     });
 
     this.exchangeList = [];
+
+    calculateDiff(4.96, 5.03);
   }
 
   handleSearch() {
-    console.log(this.form.value['inputSearch']);
-    return;
+    const { inputSearch } = this.form.value;
 
     forkJoin([
       this.exchangeService.listExchange({
         from_symbol: 'BRL',
-        to_symbol: this.form.value['inputSearch'],
+        to_symbol: inputSearch.toUpperCase(),
         path: '/currentExchangeRate',
       }),
 
       this.exchangeService.listExchange({
         from_symbol: 'BRL',
-        to_symbol: this.form.value['inputSearch'],
+        to_symbol: inputSearch.toUpperCase(),
         path: '/dailyExchangeRate',
       }),
     ]).subscribe(([current, daily]) => {
-      this.exchangeList = daily && daily?.data;
       this.currentExchange = current;
+      this.exchangeList = daily?.data;
     });
   }
 }
