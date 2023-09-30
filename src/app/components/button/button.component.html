@@ -3,6 +3,7 @@
   mat-raised-button
   color="primary"
   (click)="handleSearch()"
+  [disabled]="disabled"
 >
   {{ "Exchange result" | uppercase }}
 </button>

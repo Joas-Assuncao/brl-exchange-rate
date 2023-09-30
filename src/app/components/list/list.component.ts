@@ -7,7 +7,7 @@ import { DailyExchangeRate } from 'src/app/models/Exchange.models';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent {
-  @Input() exchangeList: DailyExchangeRate[];
+  @Input() exchangeList: DailyExchangeRate[] | undefined;
 
   constructor() {
     this.exchangeList = [];
