@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="card" *ngFor="let exchange of exchangeList">
+    <ng-container *ngIf="exchange">
+      <div class="date">
+        {{ exchange.date | date : "dd/MM/yyyy" }}
+      </div>
+      <div class="daily-values">
+        <div class="column">
+          <label
+            >{{ "open" | uppercase }}:<span>{{
+              exchange.open | currency : "BRL" : true : "1.4-4"
+            }}</span></label
+          >
+
+          <label
+            >{{ "close" | uppercase }}:<span>{{
+              exchange.close | currency : "BRL" : true : "1.4-4"
+            }}</span></label
+          >
+        </div>
+        <div class="column">
+          <label
+            >{{ "high" | uppercase }}:<span>{{
+              exchange.high | currency : "BRL" : true : "1.4-4"
+            }}</span></label
+          >
+          <label
+            >{{ "low" | uppercase }}:<span>{{
+              exchange.low | currency : "BRL" : true : "1.4-4"
+            }}</span></label
+          >
+        </div>
+      </div>
+      <div class="diff">
+        <label
+          >{{ "close diff (%):" | uppercase }}
+          <span
+            [class.positive]="
+              calculateDiff(exchange.close, exchange.open).startsWith('+')
+            "
+            [class.negative]="
+              calculateDiff(exchange.close, exchange.open).startsWith('-')
+            "
+            >{{ calculateDiff(exchange.close, exchange.open) }}</span
+          >
+        </label>
+        <mat-icon
+          color="accent"
+          *ngIf="calculateDiff(exchange.close, exchange.open).startsWith('+')"
+          >keyboard_arrow_up</mat-icon
+        >
+        <mat-icon
+          color="warn"
+          *ngIf="calculateDiff(exchange.close, exchange.open).startsWith('-')"
+          >keyboard_arrow_down</mat-icon
+        >
+      </div>
+    </ng-container>
+  </div>
+</div>

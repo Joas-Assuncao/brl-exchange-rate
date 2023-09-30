@@ -1,1 +1,76 @@
-/* You can add global styles to this file, and also import other style files */
+$exchange-rate-primary-palette: (
+  100: lighten(#07B0FB, 35%),
+  500: #07B0FB,
+  700: darken(#07B0FB, 15%),
+
+  contrast: (100: lighten(#07B0FB, 35%),
+    500: #07B0FB,
+    700: darken(#07B0FB, 15%),
+  )
+);
+
+$exchange-rate-accent-palette: (
+  100: lighten(#69C669, 35%),
+  500: #69C669,
+  700: darken(#69C669, 15%),
+
+  contrast: (100: lighten(#69C669, 35%),
+    500: #69C669,
+    700: darken(#69C669, 15%),
+  )
+);
+
+$exchange-rate-warn-palette: (
+  100: lighten(#E54E4E, 35%),
+  500: #E54E4E,
+  700: darken(#E54E4E, 15%),
+
+  contrast: (100: lighten(#E54E4E, 35%),
+    500: #E54E4E,
+    700: darken(#E54E4E, 15%),
+  )
+);
+
+@use '@angular/material' as mat;
+
+$my-primary: mat.define-palette($exchange-rate-primary-palette, 500);
+$my-accent: mat.define-palette($exchange-rate-accent-palette, 500);
+$my-warn: mat.define-palette($exchange-rate-warn-palette, 500);
+
+$my-theme: mat.define-light-theme((color: (primary: $my-primary,
+        accent: $my-accent,
+        warn: $my-warn,
+      ),
+    ));
+
+@include mat.all-component-themes($my-theme);
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  font-family: 'Roboto', sans-serif;
+}
+
+input,
+button {
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  max-width: 600px;
+  min-height: 100vh;
+
+  margin: 0 auto;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,0 +1,14 @@
+#primary-button {
+  width: 100%;
+  height: auto;
+
+  padding: .75rem 0;
+
+  font-weight: 500;
+
+  border-radius: 6.25rem;
+
+  ::ng-deep span {
+    color: white;
+  }
+}
