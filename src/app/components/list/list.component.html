@@ -8,7 +8,7 @@
     </button>
   </div>
   <app-exchange-lasts
-    *ngIf="isShowList"
+    *ngIf="isShowList && exchangeList"
     [exchangeList]="exchangeList"
   ></app-exchange-lasts>
 </div>
