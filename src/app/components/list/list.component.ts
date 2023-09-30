@@ -13,7 +13,13 @@ export class ListComponent {
   @Input() currentExchange: ExchangeRate | undefined;
   @Input() exchangeList: DailyExchangeRate[] | undefined;
 
+  isShowList: boolean;
+
   constructor() {
-    console.log('olamunfdo');
+    this.isShowList = false;
+  }
+
+  showList(): void {
+    this.isShowList = !this.isShowList;
   }
 }

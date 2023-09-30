@@ -1,4 +1,11 @@
 <div class="container">
   <app-exchange-now [currentExchange]="currentExchange"></app-exchange-now>
+  <div class="show-last-prices">
+    <strong>{{ "last 30 days" | uppercase }}</strong>
+    <button (click)="showList()">
+      <mat-icon color="primary" *ngIf="!isShowList">add</mat-icon>
+      <mat-icon color="primary" *ngIf="isShowList">remove</mat-icon>
+    </button>
+  </div>
   <app-exchange-lasts [exchangeList]="exchangeList"></app-exchange-lasts>
 </div>
