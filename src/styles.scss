@@ -1,33 +1,11 @@
 $exchange-rate-palette: (
-  50: lighten(#07B0FB, 45%),
   100: lighten(#07B0FB, 35%),
-  200: lighten(#07B0FB, 25%),
-  300: lighten(#07B0FB, 15%),
-  400: lighten(#07B0FB, 10%),
   500: #07B0FB,
-  600: darken(#07B0FB, 10%),
   700: darken(#07B0FB, 15%),
-  800: darken(#07B0FB, 25%),
-  900: darken(#07B0FB, 35%),
-  A100: lighten(#07B0FB, 50%),
-  A200: lighten(#07B0FB, 40%),
-  A400: darken(#07B0FB, 5%),
-  A700: darken(#07B0FB, 20%),
 
-  contrast: (50: lighten(#07B0FB, 45%),
-    100: lighten(#07B0FB, 35%),
-    200: lighten(#07B0FB, 25%),
-    300: lighten(#07B0FB, 15%),
-    400: lighten(#07B0FB, 10%),
-    500: #07B0FB, // nossa cor principal
-    600: darken(#07B0FB, 10%),
+  contrast: (100: lighten(#07B0FB, 35%),
+    500: #07B0FB,
     700: darken(#07B0FB, 15%),
-    800: darken(#07B0FB, 25%),
-    900: darken(#07B0FB, 35%),
-    A100: lighten(#07B0FB, 50%),
-    A200: lighten(#07B0FB, 40%),
-    A400: darken(#07B0FB, 5%),
-    A700: darken(#07B0FB, 20%),
   )
 );
 
@@ -43,16 +21,6 @@ $my-theme: mat.define-light-theme((color: (primary: $my-primary,
 
 @include mat.all-component-themes($my-theme);
 
-
-
-
-
-
-
-
-
-
-/* You can add global styles to this file, and also import other style files */
 * {
   margin: 0;
   padding: 0;
