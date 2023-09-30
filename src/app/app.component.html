@@ -1,4 +1,7 @@
 <div class="container">
   <app-header></app-header>
-  <h1>BRL Exchange Rate</h1>
+
+  <app-input [formGroup]="formGroup"></app-input>
+
+  <app-button (eventSearch)="(handleSearch)"></app-button>
 </div>
