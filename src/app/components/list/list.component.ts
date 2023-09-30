@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { DailyExchangeRate } from 'src/app/models/Exchange.models';
+import {
+  DailyExchangeRate,
+  ExchangeRate,
+} from 'src/app/models/Exchange.models';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +10,10 @@ import { DailyExchangeRate } from 'src/app/models/Exchange.models';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent {
+  @Input() currentExchange: ExchangeRate | undefined;
   @Input() exchangeList: DailyExchangeRate[] | undefined;
 
   constructor() {
-    this.exchangeList = [];
+    console.log('olamunfdo');
   }
 }

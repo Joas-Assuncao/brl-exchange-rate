@@ -1,1 +1,16 @@
-<p>exchange-now works!</p>
+<div class="card" *ngIf="currentExchange">
+  <header>
+    <div class="time">
+      <strong>Exchange rate now</strong>
+      <small>{{
+        currentExchange.lastUpdatedAt | date : "dd/mm/yyyy - hh'h'mm"
+      }}</small>
+    </div>
+    <div class="currencies">
+      {{ currentExchange.toSymbol }}/{{ currentExchange.fromSymbol }}
+    </div>
+  </header>
+  <div class="current-value">
+    {{ formatCurrency(currentExchange.exchangeRate) }}
+  </div>
+</div>
