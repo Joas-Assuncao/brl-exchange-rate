@@ -5,7 +5,10 @@
     justify-content: space-between;
 
     padding-bottom: 1rem;
-    border-bottom: 2px solid #07B0FB;
+
+    &.border-bottom {
+      border-bottom: 2px solid #07B0FB;
+    }
 
     strong {
       font-size: 1rem;
