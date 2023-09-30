@@ -18,6 +18,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { InputComponent } from './components/input/input.component';
 import { ListComponent } from './components/list/list.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ExchangeNowComponent,
     ExchangeLastsComponent,
     FooterComponent,
+    SnackBarComponent,
   ],
   imports: [
     BrowserModule,

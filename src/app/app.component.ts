@@ -57,7 +57,9 @@ export class AppComponent {
         this.isLoading = false;
       },
       error: (err) => {
-        this.snackBarService.openSnackBar('hello', 'error');
+        this.snackBarService.openSnackBar(
+          'Error fetching code! Try again or change the code'
+        );
 
         this.isLoading = false;
       },
