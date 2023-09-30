@@ -1,12 +1,27 @@
 .container {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   gap: 1rem;
 
+  max-height: 325px;
+  overflow-y: scroll;
+
   padding: .625rem;
   background-color: #F4F4F4;
+
+  scrollbar-color: #07B0FB white;
+  scrollbar-width: thin;
+  scrollbar-track-color: white;
+  scrollbar-thumb-color: #07B0FB;
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #07B0FB;
+  }
 
   .card {
     width: 100%;
