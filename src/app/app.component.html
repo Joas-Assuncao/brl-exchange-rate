@@ -1,7 +1,12 @@
 <div class="container">
   <app-header></app-header>
 
-  <app-input [formGroup]="formGroup"></app-input>
+  <app-input [form]="form"></app-input>
 
-  <app-button (eventSearch)="(handleSearch)"></app-button>
+  <app-button
+    [disabled]="form.invalid"
+    (eventSearch)="handleSearch()"
+  ></app-button>
+
+  <app-list [exchangeList]="exchangeList"></app-list>
 </div>

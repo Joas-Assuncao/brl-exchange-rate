@@ -12,6 +12,8 @@ import { ButtonComponent } from './components/button/button.component';
 import { HeaderComponent } from './components/header/header.component';
 import { InputComponent } from './components/input/input.component';
 import { ListComponent } from './components/list/list.component';
+import { ExchangeNowComponent } from './components/exchange-now/exchange-now.component';
+import { ExchangeLastsComponent } from './components/exchange-lasts/exchange-lasts.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { ListComponent } from './components/list/list.component';
     InputComponent,
     ButtonComponent,
     ListComponent,
+    ExchangeNowComponent,
+    ExchangeLastsComponent,
   ],
   imports: [
     BrowserModule,

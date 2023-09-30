@@ -7,7 +7,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./input.component.scss'],
 })
 export class InputComponent {
-  @Input() formGroup!: FormGroup;
+  @Input() form!: FormGroup;
 
   constructor() {}
 }
