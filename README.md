@@ -1,27 +1,48 @@
-# BrlExchangeRate
+# Brl Exchange Rate
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.9.
+Projeto desenvolvido para um teste de código onde forneceram uma API com dois endpoints GET, um retornaria o valor atual de alguma moeda, em comparação com o Real(BRL), e o outro retorna o valor dos últimos 30 dias desta moeda em comparação com o Real(BRL)
 
-## Development server
+# Layout
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Início do APP
 
-## Code scaffolding
+[<img src="./src/assets/init-app.png"/>]()
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Início do APP para Mobile
 
-## Build
+[<img src="./src/assets/init-app-mobile.png"/>]()
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Após pesquisar uma moeda
 
-## Running unit tests
+[<img src="./src/assets/after-search.png"/>]()
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Após pesquisar uma moeda para Mobile
 
-## Running end-to-end tests
+[<img src="./src/assets/after-search-mobile.png"/>]()
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Parte de listagem dos últimos 30 dias aberta
 
-## Further help
+[<img src="./src/assets/open-list.png"/>]()
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Parte de listagem dos últimos 30 dias aberta para Mobile
+
+[<img src="./src/assets/open-list-mobile.png"/>]()
+
+## Tecnologias utilizadas
+
+- Angular v15
+- Angular Material v15
+- Angular Forms
+- RxJS
+
+## Rodando Localmente
+
+```bash
+$ git clone git@github.com:Joas-Assuncao/brl-exchange-rate.git
+
+$ cd brl-exchange-rate
+
+$ npm install ou yarn install
+
+$ npm start ou yarn start ou ng serve
+```
