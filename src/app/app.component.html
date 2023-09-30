@@ -1,20 +1,24 @@
 <div class="container">
   <app-header></app-header>
 
-  <app-input [form]="form"></app-input>
+  <div class="content">
+    <app-input [form]="form"></app-input>
 
-  <app-button
-    [disabled]="form.invalid"
-    (eventSearch)="handleSearch()"
-  ></app-button>
+    <app-button
+      [disabled]="form.invalid"
+      (eventSearch)="handleSearch()"
+    ></app-button>
 
-  <app-list
-    *ngIf="!isLoading"
-    [currentExchange]="currentExchange"
-    [exchangeList]="exchangeList"
-  ></app-list>
+    <app-list
+      *ngIf="!isLoading"
+      [currentExchange]="currentExchange"
+      [exchangeList]="exchangeList"
+    ></app-list>
 
-  <ng-container class="spinner" *ngIf="isLoading">
-    <mat-spinner></mat-spinner>
-  </ng-container>
+    <ng-container class="spinner" *ngIf="isLoading">
+      <mat-spinner></mat-spinner>
+    </ng-container>
+  </div>
+
+  <app-footer></app-footer>
 </div>

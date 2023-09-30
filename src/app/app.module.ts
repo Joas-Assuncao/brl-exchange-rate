@@ -17,6 +17,7 @@ import { ExchangeNowComponent } from './components/exchange-now/exchange-now.com
 import { HeaderComponent } from './components/header/header.component';
 import { InputComponent } from './components/input/input.component';
 import { ListComponent } from './components/list/list.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ListComponent } from './components/list/list.component';
     ListComponent,
     ExchangeNowComponent,
     ExchangeLastsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
