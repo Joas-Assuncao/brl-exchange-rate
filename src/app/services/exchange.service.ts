@@ -12,7 +12,7 @@ export class ExchangeService {
   baseURL: string;
 
   constructor(private http: HttpClient) {
-    this.baseURL = 'https://-brl-exchange.actionlabs.com.br/api/1.0/open';
+    this.baseURL = 'https://api-brl-exchange.actionlabs.com.br/api/1.0/open';
   }
 
   listExchange({
