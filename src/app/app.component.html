@@ -12,6 +12,8 @@
       *ngIf="!isLoading"
       [currentExchange]="currentExchange"
       [listDailyExchange]="listDailyExchange"
+      [formValue]="form.value"
+      [isLoading]="isLoading"
     ></app-list>
 
     <ng-container class="spinner" *ngIf="isLoading">

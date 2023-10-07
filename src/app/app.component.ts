@@ -22,7 +22,7 @@ export class AppComponent {
     private formBuilder: FormBuilder
   ) {
     this.form = this.formBuilder.group({
-      inputSearch: [
+      currencyCode: [
         '',
         [Validators.required, Validators.maxLength(3), Validators.minLength(3)],
       ],
@@ -32,14 +32,14 @@ export class AppComponent {
   }
 
   handleSearch() {
-    const { inputSearch } = this.form.value;
+    const { currencyCode } = this.form.value;
 
     this.isLoading = true;
 
     this.exchangeService
       .listExchangeNow({
         to_symbol: 'BRL',
-        from_symbol: inputSearch.toUpperCase(),
+        from_symbol: currencyCode.toUpperCase(),
       })
       .subscribe({
         next: (current) => {
@@ -50,30 +50,6 @@ export class AppComponent {
         error: (error) => {
           this.snackBarService.openSnackBar(
             'Error fetching current exchange rate'
-          );
-
-          this.isLoading = false;
-        },
-      });
-  }
-
-  handleShowLast30DaysExchange() {
-    const { inputSearch } = this.form.value;
-
-    this.isLoading = true;
-
-    this.exchangeService
-      .listExchangeLast30Days({
-        to_symbol: 'BRL',
-        from_symbol: inputSearch.toUpperCase(),
-      })
-      .subscribe({
-        next: (daily) => {
-          this.listDailyExchange = daily;
-        },
-        error: (error) => {
-          this.snackBarService.openSnackBar(
-            'Error fetching daily exchange rate'
           );
 
           this.isLoading = false;
