@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DailyExchangeRate } from 'src/app/models/Exchange.models';
+import { ExchangeRateDaily } from 'src/app/models/Exchange.models';
 import { calculateDiff } from 'src/app/utils/calculateDiff';
 
 @Component({
@@ -8,7 +8,7 @@ import { calculateDiff } from 'src/app/utils/calculateDiff';
   styleUrls: ['./exchange-lasts.component.scss'],
 })
 export class ExchangeLastsComponent {
-  @Input() exchangeList: DailyExchangeRate[] | undefined;
+  @Input() listDailyExchange!: ExchangeRateDaily[];
 
   public calculateDiff = calculateDiff;
 }

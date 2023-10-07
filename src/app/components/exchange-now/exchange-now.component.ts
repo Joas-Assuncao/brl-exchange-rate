@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ExchangeRate } from 'src/app/models/Exchange.models';
+import { ExchangeRateNow } from 'src/app/models/Exchange.models';
 
 @Component({
   selector: 'app-exchange-now',
@@ -7,7 +7,7 @@ import { ExchangeRate } from 'src/app/models/Exchange.models';
   styleUrls: ['./exchange-now.component.scss'],
 })
 export class ExchangeNowComponent {
-  @Input() currentExchange: ExchangeRate | undefined;
+  @Input() currentExchange!: ExchangeRateNow;
 
   public formatCurrency(value?: number): string {
     if (!value) return 'R$ 0,00';

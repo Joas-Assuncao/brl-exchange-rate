@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card" *ngFor="let exchange of exchangeList">
+  <div class="card" *ngFor="let exchange of listDailyExchange">
     <ng-container *ngIf="exchange">
       <div class="date">
         {{ exchange.date | date : "dd/MM/yyyy" }}

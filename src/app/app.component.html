@@ -11,7 +11,7 @@
     <app-list
       *ngIf="!isLoading"
       [currentExchange]="currentExchange"
-      [exchangeList]="exchangeList"
+      [listDailyExchange]="listDailyExchange"
     ></app-list>
 
     <ng-container class="spinner" *ngIf="isLoading">

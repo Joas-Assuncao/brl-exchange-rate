@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { forkJoin } from 'rxjs';
+
+import { ExchangeRateDaily, ExchangeRateNow } from './models/Exchange.models';
 import { ExchangeService } from './services/exchange.service';
-import { DailyExchangeRate, ExchangeRate } from './models/Exchange.models';
-import { calculateDiff } from './utils/calculateDiff';
 import { SnackBarService } from './services/snack-bar.service';
 
 @Component({
@@ -13,8 +12,8 @@ import { SnackBarService } from './services/snack-bar.service';
 })
 export class AppComponent {
   form: FormGroup;
-  exchangeList: DailyExchangeRate[] | undefined;
-  currentExchange!: ExchangeRate;
+  listDailyExchange!: ExchangeRateDaily[];
+  currentExchange!: ExchangeRateNow;
   isLoading: boolean;
 
   constructor(
@@ -37,32 +36,48 @@ export class AppComponent {
 
     this.isLoading = true;
 
-    forkJoin([
-      this.exchangeService.listExchange({
+    this.exchangeService
+      .listExchangeNow({
         to_symbol: 'BRL',
         from_symbol: inputSearch.toUpperCase(),
-        path: '/currentExchangeRate',
-      }),
+      })
+      .subscribe({
+        next: (current) => {
+          this.currentExchange = current;
 
-      this.exchangeService.listExchange({
+          this.isLoading = false;
+        },
+        error: (error) => {
+          this.snackBarService.openSnackBar(
+            'Error fetching current exchange rate'
+          );
+
+          this.isLoading = false;
+        },
+      });
+  }
+
+  handleShowLast30DaysExchange() {
+    const { inputSearch } = this.form.value;
+
+    this.isLoading = true;
+
+    this.exchangeService
+      .listExchangeLast30Days({
         to_symbol: 'BRL',
         from_symbol: inputSearch.toUpperCase(),
-        path: '/dailyExchangeRate',
-      }),
-    ]).subscribe({
-      next: ([current, daily]) => {
-        this.currentExchange = current;
-        this.exchangeList = daily?.data?.slice(0, 30);
+      })
+      .subscribe({
+        next: (daily) => {
+          this.listDailyExchange = daily;
+        },
+        error: (error) => {
+          this.snackBarService.openSnackBar(
+            'Error fetching daily exchange rate'
+          );
 
-        this.isLoading = false;
-      },
-      error: (err) => {
-        this.snackBarService.openSnackBar(
-          'Error fetching code! Try again or change the code'
-        );
-
-        this.isLoading = false;
-      },
-    });
+          this.isLoading = false;
+        },
+      });
   }
 }

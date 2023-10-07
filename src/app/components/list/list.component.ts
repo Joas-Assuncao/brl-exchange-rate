@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import {
-  DailyExchangeRate,
-  ExchangeRate,
+  ExchangeRateDaily,
+  ExchangeRateNow,
 } from 'src/app/models/Exchange.models';
 
 @Component({
@@ -10,8 +10,8 @@ import {
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent {
-  @Input() currentExchange: ExchangeRate | undefined;
-  @Input() exchangeList: DailyExchangeRate[] | undefined;
+  @Input() currentExchange!: ExchangeRateNow;
+  @Input() listDailyExchange!: ExchangeRateDaily[];
 
   isShowList: boolean;
 
