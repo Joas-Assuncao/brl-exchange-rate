@@ -2,13 +2,23 @@
   <app-exchange-now [currentExchange]="currentExchange"></app-exchange-now>
   <div class="show-last-prices" [class.border-bottom]="!isShowList">
     <strong>{{ "last 30 days" | uppercase }}</strong>
-    <button (click)="showList()">
+    <button
+      (click)="handleShowLast30DaysExchange()"
+      [disabled]="!formValue.currencyCode || isLoading"
+      [title]="'Write a currency and search'"
+    >
       <mat-icon color="primary" *ngIf="!isShowList">add</mat-icon>
       <mat-icon color="primary" *ngIf="isShowList">remove</mat-icon>
     </button>
   </div>
+
+  <ng-container *ngIf="isLoading">
+    <mat-spinner
+      style="margin-top: 32px; width: 75px; height: 75px"
+    ></mat-spinner>
+  </ng-container>
   <app-exchange-lasts
-    *ngIf="isShowList && exchangeList"
-    [exchangeList]="exchangeList"
+    *ngIf="isShowList && listDailyExchange && !isLoading"
+    [listDailyExchange]="listDailyExchange"
   ></app-exchange-lasts>
 </div>
