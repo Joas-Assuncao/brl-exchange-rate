@@ -3,7 +3,7 @@
 
   <div class="content">
     <form [formGroup]="form" (submit)="handleSearch()">
-      <app-input [form]="form" (keydown.enter)="handleSearch()"></app-input>
+      <app-form [form]="form" (keydown.enter)="handleSearch()"></app-form>
 
       <app-button [disabled]="form.invalid || isLoading"></app-button>
     </form>
