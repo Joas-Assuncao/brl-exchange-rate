@@ -4,15 +4,21 @@
     <strong>{{ "last 30 days" | uppercase }}</strong>
     <button
       (click)="handleShowLast30DaysExchange()"
-      [disabled]="!formValue.currencyCode"
+      [disabled]="!formValue.currencyCode || isLoading"
       [title]="'Write a currency and search'"
     >
       <mat-icon color="primary" *ngIf="!isShowList">add</mat-icon>
       <mat-icon color="primary" *ngIf="isShowList">remove</mat-icon>
     </button>
   </div>
+
+  <ng-container *ngIf="isLoading">
+    <mat-spinner
+      style="margin-top: 32px; width: 75px; height: 75px"
+    ></mat-spinner>
+  </ng-container>
   <app-exchange-lasts
-    *ngIf="isShowList && listDailyExchange"
+    *ngIf="isShowList && listDailyExchange && !isLoading"
     [listDailyExchange]="listDailyExchange"
   ></app-exchange-lasts>
 </div>

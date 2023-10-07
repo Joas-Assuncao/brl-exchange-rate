@@ -61,6 +61,14 @@ button {
   background: transparent;
 }
 
+button {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
 html,
 body {
   height: 100%;

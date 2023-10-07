@@ -15,9 +15,9 @@ export class ListComponent {
   @Input() currentExchange!: ExchangeRateNow;
   @Input() listDailyExchange!: ExchangeRateDaily[];
   @Input() formValue!: { currencyCode: string };
-  @Input() isLoading!: boolean;
 
   isShowList: boolean;
+  isLoading!: boolean;
 
   constructor(
     private exchangeService: ExchangeService,
@@ -42,7 +42,20 @@ export class ListComponent {
         })
         .subscribe({
           next: (daily) => {
-            this.listDailyExchange = daily;
+            const thirtyDaysLater = new Date();
+            thirtyDaysLater.setDate(thirtyDaysLater.getDate() - 30);
+
+            const dailyExchangeRateFiltered = daily.filter(
+              (dailyExchangeDailyItem) => {
+                const dateCurrency = new Date(dailyExchangeDailyItem.date);
+
+                return dateCurrency >= thirtyDaysLater;
+              }
+            );
+
+            console.log(dailyExchangeRateFiltered);
+
+            this.listDailyExchange = dailyExchangeRateFiltered;
 
             this.isLoading = false;
           },
