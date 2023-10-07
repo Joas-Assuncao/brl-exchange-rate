@@ -18,7 +18,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FormComponent } from './components/form/form.component';
 import { ListComponent } from './components/list/list.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+import { ErrorSnackBarComponent } from './components/error-snack-bar/error-snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
     ExchangeNowComponent,
     ExchangeLastsComponent,
     FooterComponent,
-    SnackBarComponent,
+    ErrorSnackBarComponent,
   ],
   imports: [
     BrowserModule,
